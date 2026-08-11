@@ -1,0 +1,12 @@
+[package]
+name = "store-backend"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8.9"
+async-graphql = "7.2.1"
+async-graphql-axum = "7.2.1"
+tokio = { version = "1.53.1", features = ["macros", "rt-multi-thread"] }
+futures = "0.3.34"
+mongodb = "3.8.0"
