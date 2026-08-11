@@ -1,14 +1,17 @@
-use std::sync::Arc;
 use mongodb::{Client, Database};
 use mongodb::error::Error;
 use mongodb::options::DatabaseOptions;
 use mongodb::results::DatabaseSpecification;
 
 pub struct DatabaseManager {
-    client: Arc<Client>
+    client: Client
 }
 
 impl DatabaseManager {
+
+    fn new(client: Client) -> Self {
+        Self { client }
+    }
 
     async fn list_databases(&self) -> Result<Vec<DatabaseSpecification>, Error> {
         self.client.list_databases().await
